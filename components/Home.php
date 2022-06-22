@@ -4,15 +4,19 @@ $name;
 if (isset($_SESSION["user"])) {
   $name = $_SESSION["user"];
 } else {
-  $name = "stanger";
+  $name = "Guest";
 }
 session_unset();
+
+$img_url1 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_1"];
+$img_url2 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_2"];
+
 ?>
 
 <div id="home">
   <div class="parallax-container">
     <div class="parallax">
-      <img src="https://picsum.photos/1000/800" alt="background img">
+      <img src="<?php echo $img_url1 ?>" alt="background img">
     </div>
   </div>
   <div class=" section white hoverable">
@@ -22,14 +26,14 @@ session_unset();
         echo $name
         ?>
       </h2>
-      <p class="grey-text text-darken-3 lighten-3">
-        This is a Sentiment Based Movie Rating Website
-      </p>
+      <h5 class="grey-text text-darken-3 lighten-3">
+        This is Sentiment Based Movie Rating System
+      </h5>
     </div>
   </div>
   <div class="parallax-container">
     <div class="parallax">
-      <img src="https://picsum.photos/1000/900" alt="background img">
+      <img src="<?php echo $img_url2 ?>" alt="background img">
     </div>
   </div>
 </div>

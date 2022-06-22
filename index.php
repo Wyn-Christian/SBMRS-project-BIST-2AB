@@ -39,6 +39,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   });
 
   M.AutoInit();
+  navigate("Home")
   </script>
 </body>
 

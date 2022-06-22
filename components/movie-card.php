@@ -31,13 +31,25 @@ $overview = $_REQUEST["overview"];
       </div>
     </div>
 
-    <div class="card-image" style="background-color: #dbdbdb;">
-      <img src="<?php echo $img_url ?>" class="hide" onload="displayImage(this)" style="max-width: none;">
+    <div class="card-image waves-effect waves-block waves-light" style="background-color: #dbdbdb;">
+      <img src="<?php echo $img_url ?>" class="hide activator" onload="displayImage(this)" style="max-width: none;">
 
     </div>
     <div class="card-content">
       <span class="card-title truncate"><?php echo $title ?></span>
       <p class="truncate"><?php echo $overview ?></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">
+        <?php echo $title ?>
+        <i class="material-icons right">close</i>
+      </span>
+      <h5>
+        Overview:
+      </h5>
+      <p>
+        <?php echo $overview ?>
+      </p>
     </div>
   </div>
 </div>
