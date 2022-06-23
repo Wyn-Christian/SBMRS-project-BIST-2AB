@@ -45,6 +45,11 @@ function displayImage(el) {
 }
 
 let curr_type = "discover"
+let fade_animations = ["fade-up", "fade-up-right", "fade-up-left"]
+
+let get_fade = () => {
+  return fade_animations[Math.floor(Math.random() * fade_animations.length)]
+}
 
 const getMoviesPage = (page, el) => {
   $.ajax({
@@ -65,8 +70,9 @@ const getMoviesPage = (page, el) => {
       $(".movie-list").html("")
 
       json.results.forEach((val) => {
+        let aos = get_fade()
         $.ajax({
-          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}`,
+          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}&aos=${aos}`,
           type: "GET",
           success: (data) => {
             $(".movie-list").append(data)
@@ -112,8 +118,9 @@ const getMovies = (type, page, el) => {
       curr_type = type
       $(".movie-list").html("")
       json.results.forEach((val) => {
+        let aos = get_fade()
         $.ajax({
-          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}`,
+          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}&aos=${aos}`,
           type: "GET",
           success: (data) => {
             $(".movie-list").append(data)
@@ -139,12 +146,14 @@ const searchMovies = (query, page) => {
       console.log(json)
       $(".movie-list").html("")
       json.results.forEach((val) => {
+        let aos = get_fade()
         $.ajax({
-          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}`,
+          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}&aos=${aos}`,
           type: "GET",
           success: (data) => {
             // console.log(data)
             $(".movie-list").append(data)
+            AOS.refreshHard()
           },
           fail: (e) => {
             console.log("API test failed: " + e)

@@ -1,14 +1,13 @@
 <?php
-$p = $_REQUEST["page"]
+$p = $_REQUEST["page"];
 ?>
 <script>
-// window.onresize = checkWindowsSize
 getMovies('discover', 1)
 </script>
 
 
 <div class="row container">
-  <div class="col s12 m4 l3 search-bar">
+  <div class="col s12 m4 l3 search-bar" data-aos="fade-up" data-aos-once="true">
     <div class="card z-depth-1">
       <div class="collection">
         <div class="collection-header center">

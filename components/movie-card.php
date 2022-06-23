@@ -12,9 +12,12 @@ if ($_REQUEST["img_url"] != 'null') {
 $title = $_REQUEST["title"];
 $overview = $_REQUEST["overview"];
 $id = $_REQUEST["id"];
+
+$aos = $_REQUEST["aos"];
+
 ?>
 
-<div class="col s12 m6 l4">
+<div class="col s12 m6 l4" data-aos="<?php echo $aos ?>">
   <div class="card hoverable movie-card">
 
     <!-- Preloader -->
