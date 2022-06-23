@@ -15,16 +15,6 @@
       };
       xmlhttp.open("GET", "gethint.php?q=" + str + '&t=' + str, true);
       xmlhttp.send();
-      // $.ajax({
-      //   url: 'gethint.php?q=' + str,
-      //   type: "GET",
-      //   success: function(data) {
-      //     $("#txtHint").html(data);
-      //   },
-      //   fail: () => {
-      //     console.log("Encountered an error")
-      //   }
-      // })
     }
   }
   </script>
