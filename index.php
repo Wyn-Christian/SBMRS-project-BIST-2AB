@@ -17,6 +17,41 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search-bar {
+    z-index: 99;
+    position: sticky;
+    top: 3.7em;
+  }
+
+  .card-reveal {
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  .card-reveal::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+  }
+
+  .movie-list {
+    cursor: pointer;
+  }
+
+  .movie-info {
+    cursor: help;
+  }
+  </style>
 </head>
 
 <body>
@@ -39,7 +74,8 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   });
 
   M.AutoInit();
-  navigate("Home")
+  // navigate("Home")
+  getMovie(453395)
   </script>
 </body>
 

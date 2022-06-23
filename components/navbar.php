@@ -1,22 +1,31 @@
-<div class="navbar-fixed  ">
+<div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Logo</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class=" hide-on-med-and-down">
-        <li class="active">
-          <a href="#" onclick="navigate('Home')">Home</a>
-        </li>
-        <li>
-          <a href="#" onclick="navigate('DiscoverMovies')">Discover movies</a>
-        </li>
-        <li><a href="#" onclick="navigate('SearchMovies')">Search movies</a></li>
-        <li>
-          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Genres<i
-              class="material-icons right">arrow_drop_down</i>
+        <li class="active nav-page">
+          <a href="#" onclick="navigate('Home')">
+            Home
           </a>
         </li>
-      </ul>
+        <li class="nav-page">
+          <a href="#" onclick="navigate('DiscoverMovies')">
+            Discover movies
+          </a>
+        </li>
+        <li class="nav-page">
+          <a href="#" onclick="navigate('SearchMovies')">
+            Search movies
+          </a>
+        </li>
+        <li class="nav-page">
+          <a class="dropdown-trigger" href="#" data-target="dropdown1">
+            Genres
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      </ul class="nav-page">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
@@ -26,9 +35,9 @@
 
 <!-- Dropdown -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Action</a></li>
-  <li><a href="#!">Adventure</a></li>
-  <li><a href="#!">Romance</a></li>
+  <li><a href="#">Action</a></li>
+  <li><a href="#">Adventure</a></li>
+  <li><a href="#">Romance</a></li>
 </ul>
 
 <!-- Mobile sidenav -->
@@ -37,16 +46,22 @@
     <div class="brand-logo center">Logo</div>
   </li>
   <li class="divider"></li>
-  <li class="active">
-    <a href="#" onclick="navigate('Home');" class="sidenav-close">Home</a>
+  <li class="active nav-page">
+    <a href="#" onclick="navigate('Home');" class="sidenav-close">
+      Home
+    </a>
   </li>
-  <li>
-    <a href="#" onclick="navigate('DiscoverMovies')" class="sidenav-close">Discover movies</a>
+  <li class="nav-page">
+    <a href="#" onclick="navigate('DiscoverMovies')" class="sidenav-close">
+      Discover movies
+    </a>
   </li>
-  <li>
-    <a href="#" onclick="navigate('SearchMovies')" class="sidenav-close">Search movies</a>
+  <li class="nav-page">
+    <a href="#" onclick="navigate('SearchMovies')" class="sidenav-close">
+      Search movies
+    </a>
   </li>
-  <li>
+  <li class="nav-page">
     <ul class="collapsible ">
       <li>
         <a class="collapsible-header center-align">
@@ -55,9 +70,9 @@
         </a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="#!" class="sidenav-close">Action</a></li>
-            <li><a href="#!" class="sidenav-close">Adventure</a></li>
-            <li><a href="#!" class="sidenav-close">Animation</a></li>
+            <li><a href="#" class="sidenav-close">Action</a></li>
+            <li><a href="#" class="sidenav-close">Adventure</a></li>
+            <li><a href="#" class="sidenav-close">Animation</a></li>
           </ul>
         </div>
       </li>

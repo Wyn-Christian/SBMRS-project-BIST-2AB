@@ -11,6 +11,7 @@ if ($_REQUEST["img_url"] != 'null') {
 
 $title = $_REQUEST["title"];
 $overview = $_REQUEST["overview"];
+$id = $_REQUEST["id"];
 ?>
 
 <div class="col s12 m6 l4">
@@ -31,11 +32,11 @@ $overview = $_REQUEST["overview"];
       </div>
     </div>
 
-    <div class="card-image waves-effect waves-block waves-light" style="background-color: #dbdbdb;">
+    <div class="card-image waves-effect waves-block waves-light movie-info" style="background-color: #dbdbdb;">
       <img src="<?php echo $img_url ?>" class="hide activator" onload="displayImage(this)" style="max-width: none;">
 
     </div>
-    <div class="card-content">
+    <div class="card-content movie-link" onclick="getMovie(<?php echo $id ?>)">
       <span class="card-title truncate"><?php echo $title ?></span>
       <p class="truncate"><?php echo $overview ?></p>
     </div>

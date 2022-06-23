@@ -36,6 +36,11 @@ $img_url2 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_2"];
       <img src="<?php echo $img_url2 ?>" alt="background img">
     </div>
   </div>
+  <div class=" section blue white-text">
+    <div class="row container ">
+      <h1>This is footer</h1>
+    </div>
+  </div>
 </div>
 <script>
 M.AutoInit();

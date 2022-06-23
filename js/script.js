@@ -51,18 +51,15 @@ const getMoviesPage = (page, el) => {
     url: `API/getMovies.php?type=${curr_type}&page=${page}`,
     type: "GET",
     success: function (data) {
-      $("ul.pagination > li").siblings().removeClass("active")
-      $("ul.pagination > li").siblings().removeClass("disabled")
-      el.classList.add("active")
+      $("ul.pagination > li")
+        .siblings()
+        .not(".waves-effect")
+        .removeClass("active")
+        .removeClass("disabled")
 
-      if (page == 1) {
-        $("ul.pagination:first-child").addClass("disabled")
-        el.classList.add("disabled")
-      } else if (page == 5) {
-        console.log($("ul.pagination:last-child"))
-        $("ul.pagination:last-child").addClass("disabled")
-        el.classList.add("disabled")
-      }
+      el.classList.add("active")
+      el.classList.add("disabled")
+      el.classList.remove("waves-effect")
 
       let json = JSON.parse(data)
       $(".movie-list").html("")
@@ -85,11 +82,27 @@ const getMoviesPage = (page, el) => {
     },
   })
 }
+
 const getMovies = (type, page, el) => {
   $.ajax({
     url: `API/getMovies.php?type=${type}&page=${page}`,
     type: "GET",
     success: function (data) {
+      $("ul.pagination > li")
+        .siblings()
+        .not(".waves-effect")
+        .addClass("waves-effect")
+
+      $("ul.pagination > li")
+        .siblings()
+        .removeClass("active")
+        .removeClass("disabled")
+
+      $("#firstpage")
+        .removeClass("waves-effect")
+        .addClass("active")
+        .addClass("disabled")
+
       if (el) {
         $("a.collection-item").siblings().removeClass("active")
         el.classList.add("active")
@@ -103,7 +116,6 @@ const getMovies = (type, page, el) => {
           url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}`,
           type: "GET",
           success: (data) => {
-            // console.log(data)
             $(".movie-list").append(data)
           },
           fail: (e) => {
@@ -141,6 +153,20 @@ const searchMovies = (query, page) => {
       })
 
       // $(".movie-list").html("")
+    },
+    fail: () => {
+      console.log("Encountered an error")
+    },
+  })
+}
+
+const getMovie = (id) => {
+  $.ajax({
+    url: `components/Movie.php?id=${id}`,
+    type: "GET",
+    success: (data) => {
+      $("#root").html("")
+      $("#root").html(data)
     },
     fail: () => {
       console.log("Encountered an error")
