@@ -1,3 +1,14 @@
+<?php
+require_once 'unirest-php/src/Unirest.php';
+
+$genre_url = "https://api.themoviedb.org/3/genre/movie/list?api_key=52736a6805a53f07938b985b0c36ba23&language=en";
+
+$response = Unirest\Request::get($genre_url);
+$body = $response->body;        // Parsed body
+$genres = $body->genres;
+
+?>
+
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
@@ -27,6 +38,8 @@
         </li>
       </ul class="nav-page">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <li><a href="#" onclick="navigate('Register')">Register</a></li>
         <li><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
     </div>
@@ -35,9 +48,18 @@
 
 <!-- Dropdown -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#">Action</a></li>
-  <li><a href="#">Adventure</a></li>
-  <li><a href="#">Romance</a></li>
+
+  <?php
+  for ($x = 0; $x < count($genres); $x++) {
+    $genre = $genres[$x];
+    echo "<li>
+          <a href='#' onclick='getGenreMovies($genre->id, \"$genre->name\", 1)'>
+          $genre->name
+          </a>
+         </li>";
+  }
+  ?>
+
 </ul>
 
 <!-- Mobile sidenav -->
@@ -70,14 +92,32 @@
         </a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="#" class="sidenav-close">Action</a></li>
-            <li><a href="#" class="sidenav-close">Adventure</a></li>
-            <li><a href="#" class="sidenav-close">Animation</a></li>
+
+            <?php
+            for ($x = 0; $x < count($genres); $x++) {
+              $genre = $genres[$x];
+              echo "<li>
+                      <a href='#' class='sidenav-close' onclick='getGenreMovies($genre->id, \"$genre->name\", 1)'>
+                      $genre->name
+                      </a>
+                    </li>";
+            }
+            ?>
+
           </ul>
         </div>
       </li>
     </ul>
   </li>
   <li class="divider"></li>
-  <li><a href="#" class="sidenav-close" onclick="navigate('Login')">Login</a></li>
+  <li>
+    <a href="#" class="sidenav-close" onclick="navigate('Register')">
+      Register
+    </a>
+  </li>
+  <li>
+    <a href="#" class="sidenav-close" onclick="navigate('Login')">
+      Login
+    </a>
+  </li>
 </ul>

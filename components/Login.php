@@ -2,4 +2,4 @@
 session_start();
 $_SESSION["user"] = "Wyn ";
 print_r($_SESSION);
-echo "session started";
+echo "<br>session started";

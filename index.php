@@ -57,7 +57,6 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
 <body>
   <?php include_once $navbar ?>
-
   <div id="root"></div>
 
 
@@ -77,8 +76,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   AOS.init();
   M.AutoInit();
-  // navigate("Home")
-  getMovie(453395)
+  navigate("Home")
   </script>
 </body>
 

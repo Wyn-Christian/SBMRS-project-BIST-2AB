@@ -1,4 +1,4 @@
-const navigate = (str) => {
+const navigate = (str, name = "", id = 0) => {
   if (str == "Home") {
     $.ajax({
       url: `API/getMovies.php?type=popular&page=1`,
@@ -17,7 +17,29 @@ const navigate = (str) => {
         })
       },
     })
+  }
+  if (str == "GenreMovies") {
+    $.ajax({
+      url: `components/${str}.php?page=1&genre_id=${id}&genre=${name}`,
+      type: "GET",
+      success: function (data) {
+        $("#root").html(data)
+      },
+      fail: () => {
+        console.log("Encountered an error")
+      },
+    })
   } else {
+    $.ajax({
+      url: `components/${str}.php?page=1`,
+      type: "GET",
+      success: function (data) {
+        $("#root").html(data)
+      },
+      fail: () => {
+        console.log("Encountered an error")
+      },
+    })
     $.ajax({
       url: `components/${str}.php?page=1`,
       type: "GET",
@@ -143,8 +165,8 @@ const searchMovies = (query, page) => {
     type: "GET",
     success: function (data) {
       let json = JSON.parse(data)
-      console.log(json)
       $(".movie-list").html("")
+
       json.results.forEach((val) => {
         let aos = get_fade()
         $.ajax({
@@ -179,6 +201,54 @@ const getMovie = (id) => {
     },
     fail: () => {
       console.log("Encountered an error")
+    },
+  })
+}
+
+const updatePage = (num) => {
+  $(".page-list")
+    .children()
+    .removeClass("waves-effect")
+    .addClass("waves-effect")
+
+  $(".page-list")
+    .children(`.disabled`)
+    .removeClass("disabled")
+    .removeClass("active")
+
+  $(".page-list")
+    .children(`#${num}`)
+    .addClass("disabled")
+    .addClass("active")
+    .removeClass("waves-effect")
+}
+
+const getGenreMovies = (id, name, p, onPage = false) => {
+  $.ajax({
+    url: `API/getGenreMovies.php?genre_id=${id}&page=${p}`,
+    type: "GET",
+    success: (data) => {
+      let json = JSON.parse(data)
+      onPage ? updatePage(p) : navigate("GenreMovies", name, id)
+
+      $(".movie-list").html("")
+      json.results.forEach((val) => {
+        let aos = get_fade()
+        $.ajax({
+          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}&aos=${aos}`,
+          type: "GET",
+          success: (data) => {
+            $(".movie-list").append(data)
+            AOS.refreshHard()
+          },
+          fail: (e) => {
+            console.log("API test failed: " + e)
+          },
+        })
+      })
+    },
+    fail: (e) => {
+      console.log("API test failed: " + e)
     },
   })
 }

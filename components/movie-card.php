@@ -43,17 +43,20 @@ $aos = $_REQUEST["aos"];
       <span class="card-title truncate"><?php echo $title ?></span>
       <p class="truncate"><?php echo $overview ?></p>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal" style="cursor: default;">
       <span class="card-title grey-text text-darken-4">
         <?php echo $title ?>
         <i class="material-icons right">close</i>
       </span>
-      <h5>
-        Overview:
-      </h5>
-      <p>
-        <?php echo $overview ?>
-      </p>
+      <div>
+
+        <h5>
+          Overview:
+        </h5>
+        <p>
+          <?php echo $overview ?>
+        </p>
+      </div>
     </div>
   </div>
 </div>

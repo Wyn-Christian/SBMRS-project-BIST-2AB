@@ -42,6 +42,7 @@ $credits = array(
 $casts = $data->credits->cast;
 $crews = $data->credits->crew;
 $genres = array();
+$genres_id = array();
 $reviews = $data->reviews->results;
 
 $max = count($casts) > 5 ? 5 : count($casts);
@@ -60,6 +61,7 @@ foreach ($crews as $key => $val) {
 }
 foreach ($data->genres as $key => $val) {
   array_push($genres, $val->name);
+  array_push($genres_id, $val->id);
 }
 ?>
 
@@ -159,15 +161,15 @@ foreach ($data->genres as $key => $val) {
             <span class="card-title">
               Genre
             </span>
-            <ul class="collection">
+            <div class="collection">
               <?php
               for ($x = 0; $x < count($genres); $x++) {
-                echo '<li class="collection-item">';
+                echo "<a href='#' class='collection-item' onclick='getGenreMovies($genres_id[$x], \"$genres[$x]\", 1)'>";
                 echo $genres[$x];
-                echo "</li>";
+                echo "</a>";
               }
               ?>
-            </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -1,13 +1,11 @@
 <?php
 session_start();
-$name;
+
 if (isset($_SESSION["user"])) {
   $name = $_SESSION["user"];
 } else {
   $name = "Guest";
 }
-session_unset();
-
 $img_url1 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_1"];
 $img_url2 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_2"];
 

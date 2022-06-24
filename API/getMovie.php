@@ -7,7 +7,7 @@ $bearer_token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MjczNmE2ODA1YTUzZjA3OTM4Yjk4NW
 
 
 $api_key = '52736a6805a53f07938b985b0c36ba23';
-$url = "https://api.themoviedb.org/3/movie/$id?language=en&api_key=52736a6805a53f07938b985b0c36ba23&append_to_response=videos,images,credits";
+$url = "https://api.themoviedb.org/3/movie/$id?language=en&api_key=$api_key&append_to_response=videos,images,credits";
 
 
 $response = Unirest\Request::get($url);
