@@ -2,6 +2,12 @@
 
 <head>
   <script>
+  let obj = {
+    name: "eisen",
+    age: 69
+  }
+  console.log(obj.name);
+
   function showHint(str) {
     if (str.length == 0) {
       document.getElementById("txtHint").innerHTML = "";
@@ -24,10 +30,12 @@
 
   <p><b>Start typing a name in the input field below:</b></p>
   <form action="">
-    <label for="fname">First name:</label>
+    <label for="fname">Comment:</label>
     <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+    <input type="submit" value="Submit" onsubmit="checkComment">
   </form>
   <p>Suggestions: <span id="txtHint"></span></p>
+
 </body>
 
 </html>

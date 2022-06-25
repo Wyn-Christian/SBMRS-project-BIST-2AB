@@ -166,14 +166,18 @@ const searchMovies = (query, page) => {
     success: function (data) {
       let json = JSON.parse(data)
       $(".movie-list").html("")
-
+      console.log(json)
       json.results.forEach((val) => {
+        console.log(val)
         let aos = get_fade()
         $.ajax({
-          url: `components/movie-card.php?img_url=${val.poster_path}&title=${val.title}&overview=${val.overview}&id=${val.id}&aos=${aos}`,
+          url: `components/movie-card.php?img_url=${
+            val.poster_path
+          }&title=${val.title.replace("#", "%23")}&id=${
+            val.id
+          }&aos=${aos}&overview=${val.overview}`,
           type: "GET",
           success: (data) => {
-            // console.log(data)
             $(".movie-list").append(data)
             AOS.refreshHard()
           },

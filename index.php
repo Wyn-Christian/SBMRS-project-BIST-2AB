@@ -1,5 +1,5 @@
 <?php
-
+// include "DB/client.php";
 $navbar = 'components/navbar.php';
 $home = 'components/Home.php';
 $DiscoverMovies = 'components/DiscoverMovies.php';
@@ -46,11 +46,11 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   }
 
   .movie-list {
-    cursor: pointer;
+    cursor: help;
   }
 
   .movie-info {
-    cursor: help;
+    cursor: pointer;
   }
   </style>
 </head>
@@ -76,7 +76,8 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   AOS.init();
   M.AutoInit();
-  navigate("Home")
+  // navigate("Home")
+  navigate("Login")
   </script>
 </body>
 

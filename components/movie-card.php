@@ -10,7 +10,7 @@ if ($_REQUEST["img_url"] != 'null') {
 }
 
 $title = $_REQUEST["title"];
-$overview = $_REQUEST["overview"];
+$overview = isset($_REQUEST["overview"]) ? $_REQUEST["overview"] : "";
 $id = $_REQUEST["id"];
 
 $aos = $_REQUEST["aos"];
@@ -36,12 +36,13 @@ $aos = $_REQUEST["aos"];
     </div>
 
     <div class="card-image waves-effect waves-block waves-light movie-info" style="background-color: #dbdbdb;">
-      <img src="<?php echo $img_url ?>" class="hide activator" onload="displayImage(this)" style="max-width: none;">
+      <img src="<?php echo $img_url ?>" class="hide" onload="displayImage(this)" onclick="getMovie(<?php echo $id ?>)"
+        style="max-width: none;">
 
     </div>
-    <div class="card-content movie-link" onclick="getMovie(<?php echo $id ?>)">
-      <span class="card-title truncate"><?php echo $title ?></span>
-      <p class="truncate"><?php echo $overview ?></p>
+    <div class="card-content movie-link activator">
+      <span class="card-title truncate activator" style="cursor: help;"><?php echo $title ?></span>
+      <p class="truncate activator"><?php echo $overview ?></p>
     </div>
     <div class="card-reveal" style="cursor: default;">
       <span class="card-title grey-text text-darken-4">
