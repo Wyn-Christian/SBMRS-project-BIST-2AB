@@ -1,4 +1,5 @@
 const navigate = (str, name = "", id = 0) => {
+  
   let url = ""
   switch (str) {
     case "GenreMovies":

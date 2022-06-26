@@ -113,14 +113,10 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   AOS.init();
   M.AutoInit();
   // navigate("Home")
-  navigate("Login")
+  navigate("Register")
   </script>
   <script>
-  $("#login-form").submit((event) => {
-    console.log($(this).serializeArray());
-    // console.log(result);
-    event.preventDefault();
-  });
+
   </script>
 </body>
 
