@@ -86,7 +86,8 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
     display: none;
   }
   </style>
-  <script src="js/client.js"></script>
+  <script type="text/javascript" src="js/form-handling.js"></script>
+
 </head>
 
 <body>
@@ -101,8 +102,10 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/form-handling.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/user.js"></script>
+
+  <script type="text/javascript" src="js/server.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {

@@ -21,14 +21,14 @@
         <div class="card-content">
           <span class="card-title center">Register</span>
           <div class="row">
-            <form class="col s12" id="register-form">
+            <form class="col s12" id="register-form" method="POST">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="first_name" name="first_name" type="text" class="validate">
+                  <input id="first_name" name="first_name" type="text" class="validate" required>
                   <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="last_name" name="last_name" type="text" class="validate">
+                  <input id="last_name" name="last_name" type="text" class="validate" required>
                   <label for="last_name">Last Name</label>
                 </div>
               </div>
@@ -50,7 +50,6 @@
               </div>
               <div class="row">
                 <div class="col">
-
                   <button class="btn waves-effect waves-light " type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                   </button>
@@ -66,3 +65,13 @@
     </div>
   </div>
 </div>
+
+<script>
+console.log(USER);
+$("#register-form").submit((event) => {
+  event.preventDefault();
+
+  let data = $("input").serializeArray();
+  validateInputRegister(data);
+});
+</script>
