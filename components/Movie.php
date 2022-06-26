@@ -201,7 +201,7 @@ foreach ($data->genres as $key => $val) {
 <div class="parallax-container" style="height: 400px;">
   <div class="parallax"><img src="<?php echo $backdrop_url ?>"></div>
 </div>
-<div class="section  grey lighten-4 z-depth-1">
+<div class="section grey lighten-4 z-depth-1 ">
   <div class="container">
     <div class="row">
       <div class="col s12">

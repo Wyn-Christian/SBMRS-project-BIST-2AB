@@ -1,6 +1,7 @@
 <?php
 // include "DB/client.php";
 $navbar = 'components/navbar.php';
+$footer = 'components/Footer.php';
 $home = 'components/Home.php';
 $DiscoverMovies = 'components/DiscoverMovies.php';
 
@@ -52,6 +53,32 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   .movie-info {
     cursor: pointer;
   }
+
+  body {
+    height: 100vh;
+    margin: 0;
+  }
+
+  header {
+    min-height: 50px;
+    background: lightcyan;
+  }
+
+  footer {
+    min-height: 50px;
+    background: PapayaWhip;
+  }
+
+  /* Trick */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto;
+    min-height: auto;
+  }
   </style>
 </head>
 
@@ -60,6 +87,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <div id="root"></div>
 
 
+  <?php include_once $footer ?>
 
 
   <!--JavaScript at end of body for optimized loading-->
