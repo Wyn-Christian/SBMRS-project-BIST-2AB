@@ -48,6 +48,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   .movie-list {
     cursor: help;
+    margin-top: 6.8vh;
   }
 
   .movie-info {
@@ -56,11 +57,12 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   body {
     height: 100vh;
-    margin: 0;
+    margin-top: 0;
   }
 
+
   header {
-    min-height: 50px;
+    /* min-height: 50px; */
     background: lightcyan;
   }
 
@@ -79,7 +81,12 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
     margin-top: auto;
     min-height: auto;
   }
+
+  ul#tabs-swipe-demo::-webkit-scrollbar {
+    display: none;
+  }
   </style>
+  <script src="js/client.js"></script>
 </head>
 
 <body>
@@ -94,6 +101,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/form-handling.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 
   <script>
@@ -106,6 +114,13 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   M.AutoInit();
   // navigate("Home")
   navigate("Login")
+  </script>
+  <script>
+  $("#login-form").submit((event) => {
+    console.log($(this).serializeArray());
+    // console.log(result);
+    event.preventDefault();
+  });
   </script>
 </body>
 

@@ -21,7 +21,7 @@
         <div class="card-content">
           <span class="card-title center">Register</span>
           <div class="row">
-            <form class="col s12">
+            <form class="col s12" id="register-form">
               <div class="row">
                 <div class="input-field col s6">
                   <input id="first_name" type="text" class="validate">

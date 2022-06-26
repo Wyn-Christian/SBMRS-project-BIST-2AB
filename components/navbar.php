@@ -39,6 +39,7 @@ $genres = $body->genres;
       </ul class="nav-page">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
+        <li><a href="#" onclick="navigate('Account')">Account</a></li>
         <li><a href="#" onclick="navigate('Register')">Register</a></li>
         <li><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
@@ -110,6 +111,11 @@ $genres = $body->genres;
     </ul>
   </li>
   <li class="divider"></li>
+  <li>
+    <a href="#" class="sidenav-close" onclick="navigate('Account')">
+      Account
+    </a>
+  </li>
   <li>
     <a href="#" class="sidenav-close" onclick="navigate('Register')">
       Register

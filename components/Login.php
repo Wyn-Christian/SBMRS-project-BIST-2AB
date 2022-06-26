@@ -20,29 +20,29 @@
         <div class="card-content">
           <span class="card-title center">Login</span>
           <div class="row">
-            <form class="col s12">
+            <!-- form -->
+            <form class="col s12" id="login-form">
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
+                  <input id="email" name="email" type="email" class="validate">
                   <label for="email">Email</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
+                  <input id="password" name="password" type="password" class="validate">
                   <label for="password">Password</label>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
 
-                  <button class="btn waves-effect waves-light " type="submit" name="action">Submit
+                  <button class="btn waves-effect waves-light " type="submit">Submit
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
               </div>
               <a href="#" onclick="navigate('Register')">Create new account</a>
-
             </form>
           </div>
 
@@ -51,3 +51,12 @@
     </div>
   </div>
 </div>
+
+<script>
+$("#login-form").submit((event) => {
+  console.log($("input"));
+  console.log($("input").serializeArray());
+  // console.log(result);
+  event.preventDefault();
+});
+</script>
