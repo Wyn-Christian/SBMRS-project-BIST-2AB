@@ -115,8 +115,8 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   AOS.init();
   M.AutoInit();
-  // navigate("Home")
-  navigate("Register")
+  navigate("Home")
+  // navigate("Account")
   </script>
   <script>
 

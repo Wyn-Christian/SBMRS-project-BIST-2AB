@@ -18,7 +18,7 @@ const navigate = (str, name = "", id = 0) => {
         $("#root").html(data)
       } else {
         let js = JSON.parse(data)
-        let params = $.params({
+        let params = $.param({
           url_1 : js.results[0].backdrop_path,
           url_2 : js.results[1].backdrop_path,
         })

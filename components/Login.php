@@ -54,9 +54,8 @@
 
 <script>
 $("#login-form").submit((event) => {
-  console.log($("input"));
-  console.log($("input").serializeArray());
-  // console.log(result);
   event.preventDefault();
+  let inputs = $("input").serializeArray()
+  validateLogin(inputs);
 });
 </script>

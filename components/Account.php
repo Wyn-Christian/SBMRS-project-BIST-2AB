@@ -62,26 +62,26 @@
         <div class="container">
 
           <div class="row ">
-            <form class="col s12">
+            <form class="col s12" id="edit-profile-form" autocomplete="off">
               <div class="row">
                 <div class="input-field col s12 m6">
-                  <input id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
+                  <input id="firstname" name="firstname" type="text" class="validate">
+                  <label for="firstname">First Name</label>
                 </div>
                 <div class="input-field col s12 m6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
+                  <input id="lastname" name="lastname" type="text" class="validate">
+                  <label for="lastname">Last Name</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m6">
-                  <input id="password" type="password" class="validate">
+                  <input id="password" name="password" type="password" class="validate" autocomplete="noppppee">
                   <label for="password">Password</label>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
-                  <button class="btn waves-effect waves-light " type="submit" name="edi_profile">
+                  <button class="btn waves-effect waves-light " type="submit" name="edit_profile">
                     Edit Profile
                     <i class="material-icons right">send</i>
                   </button>
@@ -96,28 +96,27 @@
       <div id="change-email" style="height: 40vh;" class="col s12">
         <div class="container">
           <div class="row ">
-            <form class="col s12">
+            <form class="col s12" id="change-email-form" autocomplete="off">
 
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="new_email" type="email" class="validate">
+                  <input id="new_email" name="new_email" type="email" class="validate">
                   <label for="new_email">Enter new email address</label>
                 </div>
                 <div class="input-field col s12">
-                  <input id="re_new_email" type="email" class="validate">
-                  <label for="re_new_email">Re-enter new email address</label>
+                  <input id="re_email" name="re_email" type="email" class="validate">
+                  <label for="re_email">Re-enter new email address</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m6">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
+                  <input id="password0" name="password0" type="password" class="validate" autocomplete="new-password">
+                  <label for="password0">Password</label>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
-                  <button class="btn waves-effect waves-light " type="submit" name="change_email"
-                    onsubmit="this.preventDefault()">
+                  <button class="btn waves-effect waves-light " type="submit" name="change_email">
                     Change Email
                     <i class="material-icons right">send</i>
                   </button>
@@ -133,22 +132,23 @@
       <div class="container">
 
         <div class="row ">
-          <form class="col s12">
+          <!-- CHANGE PASSWORD FORM -->
+          <form class="col s12" id="change-password-form" autocomplete="off">
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="new_password" type="password" class="validate">
+                <input id="new_password" name="new_password" type="password" class="validate">
                 <label for="new_password">Enter new password</label>
               </div>
               <div class="input-field col s12">
-                <input id="re_password" type="password" class="validate">
+                <input id="re_password" name="re_password" type="password" class="validate">
                 <label for="re_password">Re-enter new password</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12 m6">
-                <input id="password" type="password" class="validate">
-                <label for="password">Current password</label>
+                <input id="password1" name="password1" type="password" class="validate">
+                <label for="password1">Current password</label>
               </div>
             </div>
             <div class="row">
@@ -169,14 +169,31 @@
 
 
 <script>
-console.log(user)
 M.Tabs.init(
   document.getElementById('tabs-swipe-demo'), {
     swipeable: true
   });
 
-$("form").submit(function(event) {
-  console.log($(this).serializeArray());
-  event.preventDefault();
-});
+$("#user-firstname").html(USER.firstname)
+$("#user-lastname").html(USER.lastname)
+$("#user-email").html(USER.email)
+
+$("#edit-profile-form").submit((e) => {
+  e.preventDefault()
+  let inputs = $("#edit-profile-form")
+    .serializeArray()
+  editProfile(inputs);
+})
+$("#change-email-form").submit((e) => {
+  e.preventDefault()
+  let inputs = $("#change-email-form")
+    .serializeArray()
+  changeEmail(inputs);
+})
+$("#change-password-form").submit((e) => {
+  e.preventDefault()
+  let inputs = $("#change-password-form")
+    .serializeArray()
+  changePassword(inputs);
+})
 </script>

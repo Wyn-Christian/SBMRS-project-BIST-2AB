@@ -39,9 +39,10 @@ $genres = $body->genres;
       </ul class="nav-page">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <li><a href="#" onclick="navigate('Account')">Account</a></li>
-        <li><a href="#" onclick="navigate('Register')">Register</a></li>
-        <li><a href="#" onclick="navigate('Login')">Login</a></li>
+        <li class="nav-account hide"><a href="#" onclick="navigate('Account')">Account</a></li>
+        <li class="nav-logout hide"><a href="#" onclick="logoutUser()">Log-out</a></li>
+        <li class="nav-register"><a href="#" onclick="navigate('Register')">Register</a></li>
+        <li class="nav-login"><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
     </div>
   </nav>
@@ -111,17 +112,22 @@ $genres = $body->genres;
     </ul>
   </li>
   <li class="divider"></li>
-  <li>
+  <li class="nav-account hide">
     <a href="#" class="sidenav-close" onclick="navigate('Account')">
       Account
     </a>
   </li>
-  <li>
+  <li class="nav-logout hide">
+    <a href="#" class="sidenav-close" onclick="logoutUser()">
+      Logout
+    </a>
+  </li>
+  <li class="nav-register">
     <a href="#" class="sidenav-close" onclick="navigate('Register')">
       Register
     </a>
   </li>
-  <li>
+  <li class="nav-login">
     <a href="#" class="sidenav-close" onclick="navigate('Login')">
       Login
     </a>

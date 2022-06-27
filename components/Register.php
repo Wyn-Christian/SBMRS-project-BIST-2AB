@@ -21,14 +21,14 @@
         <div class="card-content">
           <span class="card-title center">Register</span>
           <div class="row">
-            <form class="col s12" id="register-form" method="POST">
+            <form class="col s12" id="register-form" method="POST" autocomplete="off">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="first_name" name="first_name" type="text" class="validate" required>
+                  <input id="first_name" name="first_name" type="text" class="validate">
                   <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="last_name" name="last_name" type="text" class="validate" required>
+                  <input id="last_name" name="last_name" type="text" class="validate">
                   <label for="last_name">Last Name</label>
                 </div>
               </div>
@@ -40,7 +40,7 @@
               </div>
               <div class="row">
                 <div class="input-field col s12 m6">
-                  <input id="password" name="password" type="password" class="validate">
+                  <input id="password" name="password" type="password" class="validate" autocomplete="new-password">
                   <label for="password">Password</label>
                 </div>
                 <div class="input-field col s12 m6">
@@ -67,7 +67,6 @@
 </div>
 
 <script>
-console.log(USER);
 $("#register-form").submit((event) => {
   event.preventDefault();
 
