@@ -86,7 +86,6 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
     display: none;
   }
   </style>
-  <script type="text/javascript" src="js/form-handling.js"></script>
 
 </head>
 
@@ -103,9 +102,9 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-  <script type="text/javascript" src="js/user.js"></script>
 
-  <script type="text/javascript" src="js/server.js"></script>
+  <script type="text/javascript" src="js/account-server.js"></script>
+  <script type="text/javascript" src="js/comment-server.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -115,7 +114,8 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   AOS.init();
   M.AutoInit();
-  navigate("Home")
+  // navigate("Home")
+  getMovie(453395)
   // navigate("Account")
   </script>
   <script>

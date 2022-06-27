@@ -1,3 +1,8 @@
+let curr_type = "discover"
+let fade_animations = ["fade-up", "fade-up-right", "fade-up-left"]
+let current_movie_id;
+
+
 const navigate = (str, name = "", id = 0) => {
   
   let url = ""
@@ -55,8 +60,6 @@ function displayImage(el) {
   el.parentElement.previousElementSibling.classList.add("hide")
 }
 
-let curr_type = "discover"
-let fade_animations = ["fade-up", "fade-up-right", "fade-up-left"]
 
 let get_fade = () => {
   return fade_animations[Math.floor(Math.random() * fade_animations.length)]
@@ -122,6 +125,7 @@ const searchMovies = (query, page) => {
 const getMovie = (id) => {
   $.get(`components/Movie.php?id=${id}`)
     .done((data) => {
+      current_movie_id = id
       $("#root").html("")
       $("#root").html(data)
     })
@@ -157,3 +161,7 @@ const getGenreMovies = (id, name, p, onPage = false) => {
       displayMovies(json);
     })
 }
+
+
+
+

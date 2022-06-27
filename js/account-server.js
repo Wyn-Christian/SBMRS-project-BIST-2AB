@@ -1,3 +1,11 @@
+let USER = {
+  ID: 1,
+  firstname: "John",
+  lastname: "Doe",
+  email: "johnDoe@sample.com",
+  password: "1234",
+}
+// USER = null
 
 const emptyInput = (inputs) => {
   inputs.forEach(input => {
@@ -97,7 +105,6 @@ const editProfile = (inputs) => {
 }
 const changeEmail = (inputs) => {
   let [{value: new_email}, {value: re_email}, {value:password}] = inputs;
-  console.log({inputs})
   if (!validatePassword(password)){
     alertUser("Wrong password...", inputs)
     return
@@ -140,13 +147,11 @@ const changePassword = (inputs) => {
 }
 
 validatePassword = (pw) => {
-  console.log(`${pw} == ${USER.password} == ${pw == USER.password}`)
   return pw == USER.password ? true : false
 }
 
 const updateUser = (data) => {
   let params = $.param(data)
-  console.log(params)
 
   $.post("DB/accountsettings.php", params)
     .done(str =>{ 
@@ -163,3 +168,4 @@ const updateUser = (data) => {
     })
 
 }
+

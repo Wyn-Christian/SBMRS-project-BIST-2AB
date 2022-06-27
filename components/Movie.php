@@ -3,8 +3,6 @@ require_once '../unirest-php/src/Unirest.php';
 // /getMovies.php?id=__
 $id = $_REQUEST["id"];
 
-$bearer_token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MjczNmE2ODA1YTUzZjA3OTM4Yjk4NWIwYzM2YmEyMyIsInN1YiI6IjYyYjA1Y2RkYTZhNGMxMGZkODMxYWRkMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1fcB2PIajGtgTw53vKTE8Ioect9aswR__p9ExX8MovU';
-
 
 $api_key = '52736a6805a53f07938b985b0c36ba23';
 $url = "https://api.themoviedb.org/3/movie/$id?language=en&api_key=52736a6805a53f07938b985b0c36ba23&append_to_response=videos,images,credits,reviews";
@@ -201,15 +199,19 @@ foreach ($data->genres as $key => $val) {
 <div class="parallax-container" style="height: 400px;">
   <div class="parallax"><img src="<?php echo $backdrop_url ?>"></div>
 </div>
+
 <div class="section grey lighten-4 z-depth-1 ">
   <div class="container">
     <div class="row">
+
       <div class="col s12">
         <h1 class="center">Review/s</h1>
       </div>
+
       <div class=" col s12">
         <div class="row">
-          <div class='col s12 m6 l7 '>
+
+          <div class='col s12 m6 l7' id="comment-list">
             <?php
             if (count($reviews)) {
               for ($x = 0; $x < count($reviews); $x++) {
@@ -234,42 +236,152 @@ foreach ($data->genres as $key => $val) {
             }
             ?>
           </div>
+
           <div class='col s12 m6 l5 '>
+            <!-- User Promp Comment -->
             <div class="card">
               <div class="card-content">
 
-                <span class="card-title">
-                  Create Comment
+                <!-- movie-comment form -->
+                <div id="create-comment-section">
+                  <span id="comment-title" class="card-title center">
+                    Create Comment
+                  </span>
+                  <span class="card-title user-name">
+                    USER
+                  </span>
+                  <div class="row">
+
+                    <form class="col s12" id="movie-comment-form">
+                      <div class="row">
+                        <div id="comment-area" class="input-field col s12">
+                          <textarea id="create-comment" name="comment" class="materialize-textarea"></textarea>
+                          <label for="create-comment">Put your comment here...</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <button class="btn waves-effect waves-light " id="submit-create-comment" type="submit"
+                            name="action">Submit
+                            <i class="material-icons right">send</i>
+                          </button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- View Comment -->
+              <div id="view-comment-section">
+                <span id="comment-title" class="card-title center">
+                  Your Comment
+                </span>
+                <span class="card-title user-name">
+                  USER
+                </span>
+                <div class="card-content">
+                  <p id="view-comment">
+                    some comment
+                  </p>
+                </div>
+                <button class="btn waves-effect waves-light " id="view-comment" onclick="openEditComment()">Edit
+                  <i class="material-icons right">edit</i>
+                </button>
+                <a class="btn waves-effect waves-light modal-trigger red" href="#confirm-delete" onclick="">Delete
+                  <i class="material-icons right">edit</i>
+                </a>
+              </div>
+
+              <!-- Edit Comment -->
+              <div id="edit-comment-section" class="hide">
+                <span class="card-title center">
+                  Edit Comment
+                </span>
+                <span class="card-title user-name">
+                  USER
                 </span>
                 <div class="row">
-                  <form class="col s12">
+
+                  <form class="col s12" id="edit-comment-form">
                     <div class="row">
-                      <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Textarea</label>
+                      <div id="comment-area" class="input-field col s12">
+                        <textarea id="edit-comment" name="comment" class="materialize-textarea">Some comment</textarea>
+                        <label for="edit-comment" class="active">Edit your comment here...</label>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col">
-                        <button class="btn waves-effect waves-light " type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                           <i class="material-icons right">send</i>
                         </button>
                       </div>
+                    </div>
                   </form>
+
+                  <div class="col">
+                    <button class="btn waves-effect waves-light " onclick="openViewComment();">Cancel
+                      <i class="material-icons right">cancel</i>
+                    </button>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
+
         </div>
+
       </div>
-
-
     </div>
+
   </div>
 </div>
+
+<!-- Modal Structure -->
+<div id="confirm-delete" class="modal">
+  <div class="modal-content">
+    <h4>Delete confirmation</h4>
+    <p>Are you sure you want to delete your comment in this movie?</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat red"
+      onclick="deleteComment(<?php echo $id ?>, USER.ID)">Delete</a>
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+  </div>
+</div>
+
 
 <script>
 AOS.init()
 M.AutoInit();
 window.scrollTo(0, 0)
+
+if (USER != null) {
+  $(".user-name").html(`${USER.firstname} ${USER.lastname}`)
+  $("#create-comment").removeAttr("disabled")
+  $("#submit-create-comment").removeClass("disabled")
+} else {
+  $(".user-name").html("Please log in first...")
+  $("#create-comment").attr("disabled", "disabled")
+  $("#submit-create-comment").addClass("disabled")
+}
+
+movie = <?php echo $id ?>;
+
+checkCommentById(movie, USER.ID)
+
+$("#movie-comment-form").submit((e) => {
+  e.preventDefault();
+  let comment = $("#movie-comment-form").serializeArray()
+
+  createComment(movie, USER.ID, comment[0].value);
+  emptyInput(comment);
+})
+
+$("#edit-comment-form").submit((e) => {
+  e.preventDefault();
+  let comment = $("#edit-comment-form").serializeArray()
+  updateComment(movie, USER.ID, comment[0].value);
+
+})
 </script>
