@@ -6,6 +6,7 @@ $home = 'components/Home.php';
 $DiscoverMovies = 'components/DiscoverMovies.php';
 
 ?>
+<?php header('Access-Control-Allow-Origin: *'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -105,6 +106,7 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
 
   <script type="text/javascript" src="js/account-server.js"></script>
   <script type="text/javascript" src="js/comment-server.js"></script>
+  <script type="text/javascript" src="js/sentiment-analysis.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {

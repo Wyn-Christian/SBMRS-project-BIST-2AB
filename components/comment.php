@@ -9,9 +9,7 @@ $comment = $_REQUEST["comment"];
 
 <div class='card'>
   <div class='card-content'>
-    <span class='card-title'>
-      <?php echo "$firstname $lastname" ?>
-    </span>
+    <span class='card-title'><?php echo "$firstname $lastname" ?></span>
     <p>
       <?php echo "$date_updated" ?>
     </p>

@@ -1,4 +1,4 @@
-let movie;
+let movie, reviews, apireviews;
 const checkCommentById = (movie_id, user_id) => {
   let data = $.param({
     type: "read",
@@ -36,11 +36,10 @@ const createComment = (movie_id, user_id, comment) => {
   .done(result => {
     M.toast({html: result})
     checkCommentById(movie, USER.ID)
+    getAllReviews(movie_id);
 
   });
 }
-
-
 
 const updateComment = (movie_id, user_id, comment) => {
   let data = {
@@ -53,7 +52,7 @@ const updateComment = (movie_id, user_id, comment) => {
   .done(result => {
     M.toast({html: result})
     checkCommentById(movie, USER.ID)
-
+    getAllReviews(movie_id);
   });
 }
 
@@ -67,6 +66,7 @@ const deleteComment = (movie_id, user_id) => {
   .done(result => {
     M.toast({html: result})
     checkCommentById(movie_id, user_id);
+    getAllReviews(movie_id);
   });
 }
 
@@ -87,10 +87,37 @@ const getOtherComments = (movie_id, user_id = 'null') => {
         })
         
       });
-      console.log(json);
     } 
   })
 }
+
+const getAllReviews = (movie_id) => {
+  console.log(`getAllReviews called`)
+  reviews = apireviews
+  let params = $.param({
+    movie_id,
+    user_id : 'null',
+  })
+  $.get(`DB/getOtherComments.php?${params}`)
+  .done(data => {
+    console.log(data)
+
+    if(data != 'null'){
+      let json = JSON.parse(data);
+      json.forEach(review => {
+        reviews.push({
+          author: `${review.firstname} ${review.lastname}`,
+          content: `${review.comment}`,
+          updated_at: `${review.date_updated}`,
+        })
+      });
+     } 
+      getAllRating();
+      
+  })
+}
+
+
 
 const openEditComment = () => {
   $("#view-comment-section").addClass("hide");

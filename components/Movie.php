@@ -356,6 +356,7 @@ AOS.init()
 M.AutoInit();
 window.scrollTo(0, 0)
 movie = <?php echo $id ?>;
+apireviews = <?php echo json_encode($reviews) ?>;
 
 if (USER != null) {
   $(".user-name").html(`${USER.firstname} ${USER.lastname}`)
@@ -373,9 +374,8 @@ if (USER != null) {
   $("#edit-comment-section").addClass("hide");
 
   getOtherComments(movie)
-
 }
-
+getAllReviews(movie);
 
 
 $("#movie-comment-form").submit((e) => {
@@ -384,12 +384,15 @@ $("#movie-comment-form").submit((e) => {
 
   createComment(movie, USER.ID, comment[0].value);
   emptyInput(comment);
+  getAllReviews(movie);
+
 })
 
 $("#edit-comment-form").submit((e) => {
   e.preventDefault();
   let comment = $("#edit-comment-form").serializeArray()
   updateComment(movie, USER.ID, comment[0].value);
+  getAllReviews(movie);
 
 })
 </script>

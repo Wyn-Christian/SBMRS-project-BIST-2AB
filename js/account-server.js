@@ -1,6 +1,6 @@
 let USER = {
   ID: 1,
-  firstname: "John",
+  firstname: "Jhon",
   lastname: "Doe",
   email: "johnDoe@sample.com",
   password: "1234",
