@@ -70,13 +70,26 @@ const deleteComment = (movie_id, user_id) => {
   });
 }
 
-const getOtherComments = (movie_id, user_id) => {
-  let params = {
+const getOtherComments = (movie_id, user_id = 'null') => {
+  let params = $.param({
     movie_id,
     user_id,
-  }
-  $.get(`DB/getOtherMovies.php?${params}`)
-  .done()
+  })
+  $.get(`DB/getOtherComments.php?${params}`)
+  .done(data => {
+    if(data != 'null'){
+      let json = JSON.parse(data);
+      json.forEach(review => {
+        let data = $.param(review)
+        $.post('components/comment.php', data)
+        .done(htmlstr => {
+          $("#comment-list").append(htmlstr)
+        })
+        
+      });
+      console.log(json);
+    } 
+  })
 }
 
 const openEditComment = () => {

@@ -355,20 +355,28 @@ foreach ($data->genres as $key => $val) {
 AOS.init()
 M.AutoInit();
 window.scrollTo(0, 0)
+movie = <?php echo $id ?>;
 
 if (USER != null) {
   $(".user-name").html(`${USER.firstname} ${USER.lastname}`)
   $("#create-comment").removeAttr("disabled")
   $("#submit-create-comment").removeClass("disabled")
+  checkCommentById(movie, USER.ID)
+  getOtherComments(movie, USER.ID)
 } else {
   $(".user-name").html("Please log in first...")
   $("#create-comment").attr("disabled", "disabled")
   $("#submit-create-comment").addClass("disabled")
+
+  $("#create-comment-section").removeClass("hide");
+  $("#view-comment-section").addClass("hide");
+  $("#edit-comment-section").addClass("hide");
+
+  getOtherComments(movie)
+
 }
 
-movie = <?php echo $id ?>;
 
-checkCommentById(movie, USER.ID)
 
 $("#movie-comment-form").submit((e) => {
   e.preventDefault();
