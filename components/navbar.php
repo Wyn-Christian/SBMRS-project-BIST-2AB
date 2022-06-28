@@ -6,8 +6,40 @@ $genre_url = "https://api.themoviedb.org/3/genre/movie/list?api_key=52736a6805a5
 $response = Unirest\Request::get($genre_url);
 $body = $response->body;        // Parsed body
 $genres = $body->genres;
-
 ?>
+
+
+<script>
+  const isActive = document.querySelectorAll('.mobile-nav-page')
+
+  const setClasses = () => {
+    const classes = ['passive', 'actives', 'passive']
+    isActive.forEact((card, index) => card.classList.add(classes[index]))
+  }
+
+  const changeActive = (e) => {
+    const clickedNav = e.currentTarget
+    const activeNav = document.querySelector('.mobile-nav-page.actives')
+    if (clickedCard.classList.contains('actives')) return;
+    const classesFrom = e.currentTarget.className
+    const classesTo = activeNav.className
+    clickedCard.className = classesTo
+    activeCard.className = classesFrom
+  }
+
+  isActive.forEach((card) => {
+    card
+      .addEventListener('click', changeActive)
+  })
+
+  setClasses();
+</script>
+
+<style>
+  .mobile-nav-page.actives {
+    background-color: blue !important;
+  }
+</style>
 
 <div class="navbar-fixed">
   <nav>
@@ -70,17 +102,17 @@ $genres = $body->genres;
     <div class="brand-logo center">Logo</div>
   </li>
   <li class="divider"></li>
-  <li class="active nav-page">
+  <li class="mobile-nav-page">
     <a href="#" onclick="navigate('Home');" class="sidenav-close">
       Home
     </a>
   </li>
-  <li class="nav-page">
+  <li class="mobile-nav-page">
     <a href="#" onclick="navigate('DiscoverMovies')" class="sidenav-close">
       Discover movies
     </a>
   </li>
-  <li class="nav-page">
+  <li class="mobile-nav-page">
     <a href="#" onclick="navigate('SearchMovies')" class="sidenav-close">
       Search movies
     </a>
