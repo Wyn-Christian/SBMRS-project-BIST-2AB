@@ -92,7 +92,6 @@ const getOtherComments = (movie_id, user_id = 'null') => {
 }
 
 const getAllReviews = (movie_id) => {
-  console.log(`getAllReviews called`)
   reviews = apireviews
   let params = $.param({
     movie_id,
@@ -100,7 +99,6 @@ const getAllReviews = (movie_id) => {
   })
   $.get(`DB/getOtherComments.php?${params}`)
   .done(data => {
-    console.log(data)
 
     if(data != 'null'){
       let json = JSON.parse(data);
