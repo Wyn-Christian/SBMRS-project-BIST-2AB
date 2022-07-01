@@ -5,7 +5,7 @@ let USER = {
   email: "johnDoe@sample.com",
   password: "1234",
 }
-// USER = null
+USER = null
 
 const emptyInput = (inputs) => {
   inputs.forEach(input => {
