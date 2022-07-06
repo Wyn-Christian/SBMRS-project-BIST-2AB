@@ -24,6 +24,7 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
 const sentiment = new SentimentAnalyzer({ language: 'en' });
 
 app.post('/', (req, res) => {
@@ -31,7 +32,6 @@ app.post('/', (req, res) => {
   .getSentiment(req.body.comment)
   .then(result => res.json(result));
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

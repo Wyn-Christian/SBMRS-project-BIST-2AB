@@ -21,71 +21,71 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-  .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-  }
+    .movie-list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+    }
 
-  .search-bar {
-    z-index: 99;
-    position: sticky;
-    top: 3.7em;
-  }
+    .search-bar {
+      z-index: 99;
+      position: sticky;
+      top: 3.7em;
+    }
 
-  .card-reveal {
-    -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
-    scrollbar-width: none;
-    /* for Firefox */
-    overflow-y: scroll;
-  }
+    .card-reveal {
+      -ms-overflow-style: none;
+      /* for Internet Explorer, Edge */
+      scrollbar-width: none;
+      /* for Firefox */
+      overflow-y: scroll;
+    }
 
-  .card-reveal::-webkit-scrollbar {
-    display: none;
-    /* for Chrome, Safari, and Opera */
-  }
+    .card-reveal::-webkit-scrollbar {
+      display: none;
+      /* for Chrome, Safari, and Opera */
+    }
 
-  .movie-list {
-    cursor: help;
-    margin-top: 6.8vh;
-  }
+    .movie-list {
+      cursor: help;
+      margin-top: 6.8vh;
+    }
 
-  .movie-info {
-    cursor: pointer;
-  }
+    .movie-info {
+      cursor: pointer;
+    }
 
-  body {
-    height: 100vh;
-    margin-top: 0;
-  }
+    body {
+      height: 100vh;
+      margin-top: 0;
+    }
 
 
-  header {
-    /* min-height: 50px; */
-    background: lightcyan;
-  }
+    header {
+      /* min-height: 50px; */
+      background: lightcyan;
+    }
 
-  footer {
-    min-height: 50px;
-    background: PapayaWhip;
-  }
+    footer {
+      min-height: 50px;
+      background: PapayaWhip;
+    }
 
-  /* Trick */
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+    /* Trick */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  footer {
-    margin-top: auto;
-    min-height: auto;
-  }
+    footer {
+      margin-top: auto;
+      min-height: auto;
+    }
 
-  ul#tabs-swipe-demo::-webkit-scrollbar {
-    display: none;
-  }
+    ul#tabs-swipe-demo::-webkit-scrollbar {
+      display: none;
+    }
   </style>
 
 </head>
@@ -109,16 +109,16 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <script type="text/javascript" src="js/sentiment-analysis.js"></script>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
 
-  AOS.init();
-  M.AutoInit();
-  // navigate("Home")
-  getMovie(453395)
-  // navigate("Account")
+    AOS.init();
+    M.AutoInit();
+    // navigate("Home")
+    getMovie(453395)
+    // navigate("Account")
   </script>
   <script>
 

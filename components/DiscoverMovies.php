@@ -2,9 +2,17 @@
 $p = $_REQUEST["page"];
 ?>
 <script>
-getMovies('discover', 1)
+  getMovies('discover', 1)
 </script>
+<style>
+  :root {
+    background-color: #052636 !important;
+  }
 
+  .test {
+    background-color: #052636 !important;
+  }
+</style>
 
 <div class="row container">
   <div class="col s12 m4 l3 search-bar" data-aos="fade-up" data-aos-once="true">
@@ -41,7 +49,7 @@ getMovies('discover', 1)
     </div>
 
   </div>
-  <div class="col s12 m8 l9 movie-list">
+  <div class="col s12 m8 l9 movie-list test">
     <div class="row movies-list">
     </div>
   </div>
