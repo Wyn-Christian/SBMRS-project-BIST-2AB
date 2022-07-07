@@ -22,7 +22,6 @@ app.post('/', (req, res) => {
   .then(result => res.json(result));
 })
 
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
