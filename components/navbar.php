@@ -56,8 +56,8 @@ $genres = $body->genres;
       </ul class="nav-page">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <li class="nav-account hide"><a href="#" onclick="navigate('Account')">Account</a></li>
-        <li class="nav-logout hide"><a href="#" onclick="logoutUser()">Log-out</a></li>
+        <li class="nav-account hide nav-components"><a href="#" onclick="navigate('Account')">Account</a></li>
+        <li class="nav-logout hide nav-components"><a href="#" onclick="logoutUser()">Log-out</a></li>
         <li class="nav-register nav-components"><a href="#" onclick="navigate('Register')">Register</a></li>
         <li class="nav-login nav-components"><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
