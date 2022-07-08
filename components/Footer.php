@@ -25,13 +25,7 @@
         </ul>
       </div>
       <div class="col l4 offset-l2 s12">
-        <h5 class="dark-cyan">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/Wyn-Christian/SBMRS-project-BIST-2AB" target="_blank">Source code</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-        </ul>
+        <img src="assets/solo-logo.png" style="height:100px" alt="">
         <h5 class="dark-cyan">Submitted to:</h3>
           <h6 class="white-text">Prof. Haidee Vinalon</h1>
       </div>
@@ -40,7 +34,7 @@
   <div class="footer-copyright">
     <div class="container">
       © All rights reserved. 2022
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <a class="grey-text text-lighten-4 right" target="_blank" href="https://github.com/Wyn-Christian/SBMRS-project-BIST-2AB">Source Code</a>
     </div>
   </div>
 </footer>

@@ -10,8 +10,8 @@ $img_url2 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_2"];
       <img src="<?php echo $img_url1 ?>" alt="background img">
     </div>
   </div>
-  <div class=" section white hoverable">
-    <div class="row container ">
+  <div class="section white hoverable">
+    <div class=" row container">
       <h2 class="header">Welcome,
         <span class="home-name">
           Guest
@@ -30,9 +30,9 @@ $img_url2 = "https://image.tmdb.org/t/p/w1280" . $_REQUEST["url_2"];
 
 </div>
 <script>
-M.AutoInit();
-if (USER != null) {
-  console.log("haha")
-  $(".home-name").html(USER.firstname)
-}
+  M.AutoInit();
+  if (USER != null) {
+    console.log("haha")
+    $(".home-name").html(USER.firstname)
+  }
 </script>

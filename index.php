@@ -21,71 +21,91 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-  .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-  }
+    body::-webkit-scrollbar {
+      width: 12px;
+      /* width of the entire scrollbar */
+    }
 
-  .search-bar {
-    z-index: 99;
-    position: sticky;
-    top: 3.7em;
-  }
+    body::-webkit-scrollbar-track {
+      background: #24252a;
+      /* color of the tracking area */
+    }
 
-  .card-reveal {
-    -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
-    scrollbar-width: none;
-    /* for Firefox */
-    overflow-y: scroll;
-  }
-
-  .card-reveal::-webkit-scrollbar {
-    display: none;
-    /* for Chrome, Safari, and Opera */
-  }
-
-  .movie-list {
-    cursor: help;
-    margin-top: 6.8vh;
-  }
-
-  .movie-info {
-    cursor: pointer;
-  }
-
-  body {
-    height: 100vh;
-    margin-top: 0;
-  }
+    body::-webkit-scrollbar-thumb {
+      background-color: #298a91;
+      /* color of the scroll thumb */
+      border-radius: 20px;
+      /* roundness of the scroll thumb */
+      border: 3px solid #298a91;
+      /* creates padding around scroll thumb */
+    }
 
 
-  header {
-    /* min-height: 50px; */
-    background: lightcyan;
-  }
+    .movie-list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+    }
 
-  footer {
-    min-height: 50px;
-    background: PapayaWhip;
-  }
+    .search-bar {
+      z-index: 99;
+      position: sticky;
+      top: 3.7em;
+    }
 
-  /* Trick */
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+    .card-reveal {
+      -ms-overflow-style: none;
+      /* for Internet Explorer, Edge */
+      scrollbar-width: none;
+      /* for Firefox */
+      overflow-y: scroll;
+    }
 
-  footer {
-    margin-top: auto;
-    min-height: auto;
-  }
+    .card-reveal::-webkit-scrollbar {
+      display: none;
+      /* for Chrome, Safari, and Opera */
+    }
 
-  ul#tabs-swipe-demo::-webkit-scrollbar {
-    display: none;
-  }
+    .movie-list {
+      cursor: help;
+      margin-top: 6.8vh;
+    }
+
+    .movie-info {
+      cursor: pointer;
+    }
+
+    body {
+      height: 100vh;
+      margin-top: 0;
+    }
+
+
+    header {
+      /* min-height: 50px; */
+      background: lightcyan;
+    }
+
+    footer {
+      min-height: 50px;
+      background: PapayaWhip;
+    }
+
+    /* Trick */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer {
+      margin-top: auto;
+      min-height: auto;
+    }
+
+    ul#tabs-swipe-demo::-webkit-scrollbar {
+      display: none;
+    }
   </style>
 
 </head>
@@ -109,14 +129,14 @@ $DiscoverMovies = 'components/DiscoverMovies.php';
   <script type="text/javascript" src="js/sentiment-analysis.js"></script>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
 
-  AOS.init();
-  M.AutoInit();
-  navigate("Home")
+    AOS.init();
+    M.AutoInit();
+    navigate("Home")
   </script>
   <script>
 
