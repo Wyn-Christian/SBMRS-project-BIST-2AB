@@ -1,20 +1,20 @@
 <style>
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-}
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.search-bar {
-  z-index: 99;
-  position: sticky;
-  top: 3.7em;
-}
+  .search-bar {
+    z-index: 99;
+    position: sticky;
+    top: 3.7em;
+  }
 </style>
 <div class="row container">
   <div class="col s12 m4 l3 search-bar x">
-    <div class="card z-depth-1">
+    <div class="card z-depth-1" style="padding-top: 50px;">
       <div class="row ">
         <div class="col s12">
           <h4 class="center">Search Movies</h4>
