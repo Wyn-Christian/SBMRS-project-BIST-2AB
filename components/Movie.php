@@ -190,6 +190,26 @@ foreach ($data->genres as $key => $val) {
           </div>
         </div>
       </div>
+      <div class="col s12 m4 l3">
+        <div class="card z-depth-2">
+          <div class="card-content">
+            <span class="card-title">
+              Movie Rating
+            </span>
+            <ul class="collection">
+              <li class="collection-item">
+                <p>
+                  <span id="movie-rating">
+                    0.00
+
+                  </span>
+
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
 
     </div>
