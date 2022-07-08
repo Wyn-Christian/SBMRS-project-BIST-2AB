@@ -15,7 +15,7 @@ $p = $_REQUEST["page"];
 </style>
 
 <div class="row container">
-  <div class="col s12 m4 l3 search-bar" data-aos="fade-up" data-aos-once="true" style="padding-top: 50px">
+  <div class="col s12 m4 l3 search-bar" data-aos="fade-up" data-aos-once="true" style="padding-top: 50px;">
     <div class="card z-depth-1">
       <div class="collection">
         <div class="collection-header center">
