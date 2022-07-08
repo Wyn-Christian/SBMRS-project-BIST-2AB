@@ -17,33 +17,40 @@ $genres = $body->genres;
   .genres-sidenav {
     color: white !important;
   }
+
+  .nav-components {
+    height: 100px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    line-height: 100px !important;
+  }
 </style>
 
 <div class="navbar-fixed">
   <nav>
-    <div class="nav-wrapper navbar-style">
-      <a class="center brand-logo" style="height: 100%" href=""><img style="height: 100%" src="assets/logo.png" alt=""></a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper navbar-style" style="height: 100px">
+      <a class="center brand-logo" style="height: 100%; padding: 10px 0;" href=""><img style="height: 100%" src="assets/logo.png" alt=""></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons nav-components">menu</i></a>
       <ul id="nav-mobile" class=" hide-on-med-and-down">
-        <li class="active nav-page">
+        <li class="nav-page nav-components">
           <a href="#" onclick="navigate('Home')">
             Home
           </a>
         </li>
-        <li class="nav-page">
+        <li class="nav-page nav-components">
           <a href="#" onclick="navigate('DiscoverMovies')">
             Discover movies
           </a>
         </li>
-        <li class="nav-page">
+        <li class="nav-page nav-components">
           <a href="#" onclick="navigate('SearchMovies')">
             Search movies
           </a>
         </li>
-        <li class="nav-page">
+        <li class="nav-page nav-components">
           <a class="dropdown-trigger" href="#" data-target="dropdown1">
             Genres
-            <i class="material-icons right">arrow_drop_down</i>
+            <i class="material-icons right nav-components">arrow_drop_down</i>
           </a>
         </li>
       </ul class="nav-page">
@@ -51,8 +58,8 @@ $genres = $body->genres;
 
         <li class="nav-account hide"><a href="#" onclick="navigate('Account')">Account</a></li>
         <li class="nav-logout hide"><a href="#" onclick="logoutUser()">Log-out</a></li>
-        <li class="nav-register"><a href="#" onclick="navigate('Register')">Register</a></li>
-        <li class="nav-login"><a href="#" onclick="navigate('Login')">Login</a></li>
+        <li class="nav-register nav-components"><a href="#" onclick="navigate('Register')">Register</a></li>
+        <li class="nav-login nav-components"><a href="#" onclick="navigate('Login')">Login</a></li>
       </ul>
 
     </div>
